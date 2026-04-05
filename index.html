@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitoring IPAL</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div id="loginBox">
+  <div class="login-content">
+    <div class="logo-wrapper">
+      <img src="pnup.png" class="logo" alt="Logo 1">
+      <img src="eeco2.png" class="logo" alt="Logo 2">
+    </div>
+    
+    <h2>EcoSignal<br>IPAL Monitoring</h2>
+    
+    <div class="input-group">
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <p id="errorMessage" class="error-text">Username atau Password salah!</p>
+    </div> <button onclick="login()">Login</button>
+    
+    <div class="login-footer">Lupa Password? Hubungi Admin</div>
+  </div>
+</div>
+
+<div id="loadingBox">
+  <div class="loader"></div>
+  <p>Memuat Dashboard...</p>
+</div>
+
+<div id="dashboard" style="display:none;">
+
+  <h1>🌿 Monitoring Kualitas Air Limbah</h1>
+
+  <div class="container">
+    <div class="card">
+      <h3>pH</h3>
+      <div class="value" id="ph">-</div>
+    </div>
+
+    <div class="card">
+      <h3>Suhu (°C)</h3>
+      <div class="value" id="suhu">-</div>
+    </div>
+
+    <div class="card">
+      <h3>Turbidity (NTU)</h3>
+      <div class="value" id="turbidity">-</div>
+    </div>
+
+    <div class="card">
+      <h3>DO (mg/L)</h3>
+      <div class="value" id="do">-</div>
+    </div>
+  </div>
+
+  <div class="status" id="status">Menunggu data...</div>
+
+  <div class="button-group">
+    <button onclick="exportCSV()">📥 Download Data</button>
+    <button onclick="logout()" class="btn-logout">🚪 Logout</button>
+  </div>
+
+  <div class="chart-card">
+    <h3>Grafik Real-time pH</h3>
+    <canvas id="chartPH"></canvas>
+  </div>
+
+  <div class="chart-card">
+    <h3>Grafik Real-time Suhu</h3>
+    <canvas id="chartSuhu"></canvas>
+  </div>
+
+  <div class="chart-card">
+    <h3>Grafik Real-time Turbidity</h3>
+    <canvas id="chartTurbidity"></canvas>
+  </div>
+
+  <div class="chart-card">
+    <h3>Grafik Real-time DO</h3>
+    <canvas id="chartDO"></canvas>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
